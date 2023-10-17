@@ -20,7 +20,7 @@ Rudder is a platform for collecting, storing and routing customer event data to 
   s.source           = { :git => 'https://github.com/rudderlabs/rudder-integration-comscore-ios.git', :tag => "v#{s.version}" }
   s.static_framework = true
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '12.0'
   s.source_files = 'Rudder-Comscore/Classes/**/*'
 
   if defined?($ComscoreVersion)
