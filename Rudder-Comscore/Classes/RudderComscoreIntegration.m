@@ -26,6 +26,7 @@ NSString* const ID = @"id";
         
         SCORPublisherConfiguration* publisherConfiguration = [SCORPublisherConfiguration publisherConfigurationWithBuilderBlock:^(SCORPublisherConfigurationBuilder *builder) {
             builder.publisherId = publisherId;
+            builder.secureTransmissionEnabled = YES;
         }];
         [[SCORAnalytics configuration] addClientWithConfiguration:publisherConfiguration];
         
@@ -37,6 +38,7 @@ NSString* const ID = @"id";
         [self setLogLevel:rudderConfig];
         [self setUsagePropertiesAutoUpdateDetails:config];
         [SCORAnalytics start];
+        [RSLogger logInfo:@"RudderComscoreIntegration: Comscore SDK is initialized"];
         
     }
     return self;
@@ -65,7 +67,7 @@ NSString* const ID = @"id";
 }
 
 - (void) setUsagePropertiesAutoUpdateDetails:(NSDictionary *) config {
-    int autoUpdateInterval = [[config objectForKey:@"autoUpdateInterval"] intValue];
+    int autoUpdateInterval = [[config objectForKey:@"autoUpdateInterval"] intValue] == nil ? 60 : [[config objectForKey:@"autoUpdateInterval"] intValue];
     [SCORAnalytics configuration].usagePropertiesAutoUpdateInterval = autoUpdateInterval;
     
     BOOL autoUpdateForegroundOnly = [[config objectForKey:@"foregroundOnly"] boolValue];
