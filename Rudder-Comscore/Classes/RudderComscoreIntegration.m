@@ -43,7 +43,7 @@ NSString* const ID = @"id";
 }
 
 - (void) setLogLevel:(RSConfig *) rudderConfig {
-    SCORLogLevel * logLevel;
+    SCORLogLevel logLevel;
     switch(rudderConfig.logLevel) {
         case 5:
             logLevel = SCORLogLevelVerbose;
@@ -115,7 +115,6 @@ NSString* const ID = @"id";
 }
 
 - (void)flush {
-    
     [RSLogger logWarn: @"RudderComscoreIntegration: Flush is not supported"];
 }
 
