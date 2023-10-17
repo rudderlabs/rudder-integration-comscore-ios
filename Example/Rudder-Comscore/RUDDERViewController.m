@@ -31,21 +31,24 @@
     traits:@{@"foo": @"bar",
             @"foo1": @"bar1",
             @"email": @"test@gmail.com",
-            @"key_1" : @"value_1",
-            @"key_2" : @"value_2"
+            @"identify_key_1" : @"identify_value_1",
+            @"identify_key_2" : @"identify_value_2"
     }
     ];
 
 }
 - (IBAction)handleTrack:(id)sender {
     [[RSClient sharedInstance] track:@"simple_track_with_props" properties:@{
-        @"key_1" : @"value_1",
-        @"key_2" : @"value_2"
+        @"track_key_1" : @"track_value_1",
+        @"track_key_2" : @"track_value_2"
     }];
 
 }
 - (IBAction)handleScreen:(id)sender {
-    [[RSClient sharedInstance] screen:@"ViewController"];
+    [[RSClient sharedInstance] screen:@"ViewController" properties:@{
+        @"screen_key_1" : @"screen_value_1",
+        @"screen_key_2" : @"screen_value_2"
+    }];
 
 }
 - (IBAction)hanldeGroup:(id)sender {
@@ -55,6 +58,9 @@
                 @"email": @"ruchira@gmail.com"}
     ];
 
+}
+- (IBAction)handleReset:(id)sender {
+    [[RSClient sharedInstance] reset];
 }
 
 @end
