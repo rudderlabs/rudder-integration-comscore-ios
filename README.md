@@ -11,7 +11,7 @@ More information on RudderStack can be found [here](https://github.com/rudderlab
 2. Rudder-Comscore is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Rudder-Comscore', '1.0.0'
+pod 'Rudder-Comscore', '1.1.0'
 ```
 
 ## Initialize ```RSClient```
